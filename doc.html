@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102b4e">
+    <title>LTM | Onboarding Document Centre</title>
+    <style>
+         :root {
+            --navy: #102b4e;
+            --navy2: #173e6b;
+            --blue: #2868b2;
+            --blue2: #4388d6;
+            --bg: #f3f6fb;
+            --card: #fff;
+            --text: #17283d;
+            --muted: #718096;
+            --line: #e5ebf3;
+            --soft: #edf4fc;
+            --green: #16845b;
+            --shadow: 0 14px 40px rgba(19, 43, 74, .08);
+            --radius: 18px;
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html {
+            scroll-behavior: smooth
+        }
+        
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif
+        }
+        
+        button,
+        input {
+            font: inherit
+        }
+        
+        button {
+            cursor: pointer
+        }
+        
+        .shell {
+            min-height: 100vh
+        }
+        
+        .hero {
+            color: #fff;
+            background: radial-gradient(circle at 82% 15%, rgba(93, 163, 235, .26), transparent 28%), radial-gradient(circle at 10% 110%, rgba(54, 126, 198, .25), transparent 32%), linear-gradient(120deg, #0d2441, #153c68 62%, #1d5489);
+            padding: 26px max(22px, calc((100vw - 1220px)/2)) 76px;
+            position: relative;
+            overflow: hidden
+        }
+        
+        .hero:after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(255, 255, 255, .09);
+            border-radius: 50%;
+            right: -110px;
+            bottom: -230px;
+            box-shadow: 0 0 0 34px rgba(255, 255, 255, .025), 0 0 0 72px rgba(255, 255, 255, .02)
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            position: relative;
+            z-index: 1
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            letter-spacing: .04em
+        }
+        
+        .brand-mark {
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .1);
+            font-size: 17px
+        }
+        
+        .brand small {
+            display: block;
+            font-size: 10px;
+            letter-spacing: .18em;
+            font-weight: 600;
+            color: #c5d8ed;
+            margin-top: 2px
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: 9px
+        }
+        
+        .icon-btn {
+            border: 1px solid rgba(255, 255, 255, .24);
+            background: rgba(255, 255, 255, .1);
+            color: #fff;
+            border-radius: 11px;
+            padding: 9px 12px
+        }
+        
+        .icon-btn:hover {
+            background: rgba(255, 255, 255, .2)
+        }
+        
+        .hero-copy {
+            position: relative;
+            z-index: 1;
+            margin: 44px 0 0;
+            max-width: 700px
+        }
+        
+        .eyebrow {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .18em;
+            color: #a9c9eb;
+            font-weight: 800
+        }
+        
+        h1 {
+            font-size: clamp(30px, 5vw, 48px);
+            line-height: 1.08;
+            letter-spacing: -.04em;
+            margin: 12px 0
+        }
+        
+        .hero-copy p {
+            color: #d4e3f3;
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 0;
+            max-width: 600px
+        }
+        
+        main {
+            width: min(1220px, calc(100% - 36px));
+            margin: -42px auto 60px;
+            position: relative;
+            z-index: 2
+        }
+        
+        .overview {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 20px
+        }
+        
+        .stat {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 17px 19px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 13px
+        }
+        
+        .stat-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 13px;
+            background: var(--soft);
+            color: var(--blue);
+            display: grid;
+            place-items: center;
+            font-size: 19px;
+            flex: none
+        }
+        
+        .stat strong {
+            display: block;
+            font-size: 20px;
+            line-height: 1.2
+        }
+        
+        .stat span {
+            font-size: 12px;
+            color: var(--muted)
+        }
+        
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden
+        }
+        
+        .panel-head {
+            padding: 21px 23px 17px;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px
+        }
+        
+        .panel-title {
+            margin: 0;
+            font-size: 18px;
+            letter-spacing: -.02em
+        }
+        
+        .panel-sub {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 12px
+        }
+        
+        .toolbar {
+            padding: 16px 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--line)
+        }
+        
+        .search-wrap {
+            position: relative;
+            flex: 1 1 260px
+        }
+        
+        .search-wrap span {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8a9ab0
+        }
+        
+        .search {
+            width: 100%;
+            height: 42px;
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            padding: 0 14px 0 39px;
+            outline: none;
+            background: #fbfcfe;
+            color: var(--text)
+        }
+        
+        .search:focus {
+            border-color: #78a9df;
+            box-shadow: 0 0 0 3px rgba(40, 104, 178, .1)
+        }
+        
+        .filter {
+            height: 42px;
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            background: #fff;
+            color: #42546a;
+            padding: 0 13px
+        }
+        
+        .view-toggle {
+            display: flex;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 3px;
+            gap: 2px
+        }
+        
+        .view-toggle button {
+            border: 0;
+            background: transparent;
+            border-radius: 7px;
+            padding: 7px 10px;
+            color: var(--muted)
+        }
+        
+        .view-toggle button.active {
+            background: var(--soft);
+            color: var(--blue);
+            font-weight: 700
+        }
+        
+        .list-area {
+            padding: 8px 22px 18px
+        }
+        
+        .doc-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 11px
+        }
+        
+        .doc-card {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 15px;
+            display: flex;
+            gap: 13px;
+            align-items: flex-start;
+            min-width: 0;
+            transition: .18s ease;
+            background: #fff
+        }
+        
+        .doc-card:hover {
+            border-color: #b7cde5;
+            box-shadow: 0 8px 22px rgba(30, 69, 112, .07);
+            transform: translateY(-1px)
+        }
+        
+        .doc-icon {
+            width: 42px;
+            height: 46px;
+            flex: none;
+            border-radius: 11px;
+            background: #f0f5fb;
+            color: #2b69ad;
+            display: grid;
+            place-items: center;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: .04em
+        }
+        
+        .doc-info {
+            min-width: 0;
+            flex: 1
+        }
+        
+        .doc-title {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 1px 0 5px;
+            overflow-wrap: anywhere
+        }
+        
+        .doc-filename {
+            font-size: 11px;
+            color: #8794a5;
+            overflow-wrap: anywhere;
+            line-height: 1.4
+        }
+        
+        .doc-meta {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 9px
+        }
+        
+        .tag {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 7px;
+            border-radius: 20px;
+            background: #eef4fb;
+            color: #52749b
+        }
+        
+        .doc-actions {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 11px
+        }
+        
+        .action {
+            border: 1px solid var(--line);
+            background: #fff;
+            color: #43546a;
+            border-radius: 8px;
+            padding: 7px 9px;
+            font-size: 11px;
+            font-weight: 650
+        }
+        
+        .action:hover {
+            background: #f1f6fc;
+            border-color: #bfd2e7;
+            color: var(--blue)
+        }
+        
+        .action.primary {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: white
+        }
+        
+        .action.primary:hover {
+            background: #1d548f
+        }
+        
+        .empty {
+            display: none;
+            text-align: center;
+            padding: 48px 15px;
+            color: var(--muted)
+        }
+        
+        .empty strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 5px
+        }
+        
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 15px 22px;
+            border-top: 1px solid var(--line);
+            font-size: 11px;
+            color: var(--muted)
+        }
+        
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translate(-50%, 20px);
+            opacity: 0;
+            pointer-events: none;
+            background: #142c49;
+            color: #fff;
+            border-radius: 12px;
+            padding: 11px 16px;
+            font-size: 13px;
+            box-shadow: 0 10px 30px #102b4e33;
+            transition: .22s;
+            z-index: 30
+        }
+        
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0)
+        }
+        
+        .viewer {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 16, 30, .82);
+            z-index: 20;
+            padding: clamp(8px, 2vw, 24px);
+            backdrop-filter: blur(5px)
+        }
+        
+        .viewer.open {
+            display: flex;
+            flex-direction: column
+        }
+        
+        .viewer-head {
+            background: #fff;
+            border-radius: 14px 14px 0 0;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px
+        }
+        
+        .viewer-name {
+            font-weight: 750;
+            font-size: 14px;
+            min-width: 0;
+            overflow-wrap: anywhere
+        }
+        
+        .viewer-tools {
+            display: flex;
+            gap: 7px;
+            flex: none
+        }
+        
+        .viewer iframe {
+            width: 100%;
+            flex: 1;
+            min-height: 0;
+            border: 0;
+            background: #fff;
+            border-radius: 0 0 14px 14px
+        }
+        
+        .close {
+            border: 0;
+            background: #eef2f7;
+            color: #35465a;
+            border-radius: 9px;
+            padding: 9px 12px;
+            font-weight: 700
+        }
+        
+        body.dark {
+            --bg: #0d1725;
+            --card: #142235;
+            --text: #e7eef7;
+            --muted: #9aabc0;
+            --line: #26384d;
+            --soft: #1c3450;
+            --shadow: 0 14px 40px rgba(0, 0, 0, .2)
+        }
+        
+        body.dark .doc-card,
+        body.dark .filter,
+        body.dark .action,
+        body.dark .search {
+            background: #142235;
+            color: var(--text)
+        }
+        
+        body.dark .doc-icon {
+            background: #1c3450;
+            color: #9fc8f4
+        }
+        
+        body.dark .tag {
+            background: #203b59;
+            color: #b5d3f2
+        }
+        
+        body.dark .search {
+            border-color: var(--line)
+        }
+        
+        body.dark .viewer-head {
+            background: #142235;
+            color: var(--text)
+        }
+        
+        body.dark .close {
+            background: #26384d;
+            color: #e7eef7
+        }
+        
+        @media(max-width:760px) {
+            .overview {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px
+            }
+            .stat {
+                padding: 13px 10px;
+                gap: 8px
+            }
+            .stat-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 15px
+            }
+            .stat strong {
+                font-size: 17px
+            }
+            .stat span {
+                font-size: 10px
+            }
+            .doc-list {
+                grid-template-columns: 1fr
+            }
+            .hero {
+                padding-bottom: 66px
+            }
+            .hero-copy {
+                margin-top: 34px
+            }
+        }
+        
+        @media(max-width:480px) {
+            main {
+                width: calc(100% - 20px)
+            }
+            .overview {
+                grid-template-columns: 1fr 1fr
+            }
+            .overview .stat:first-child {
+                grid-column: 1/-1
+            }
+            .panel-head {
+                padding: 17px
+            }
+            .toolbar {
+                padding: 13px
+            }
+            .list-area {
+                padding: 8px 12px 14px
+            }
+            .doc-card {
+                padding: 13px
+            }
+            .doc-actions .action {
+                flex: 1
+            }
+            .nav-actions .icon-btn {
+                font-size: 12px;
+                padding: 8px
+            }
+            .hero-copy p {
+                font-size: 14px
+            }
+            .viewer-tools .action {
+                display: none
+            }
+        }
+        
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: fit-content;
+            max-width: 100%;
+            margin-top: 25px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .link-icon {
+            font-size: 20px;
+        }
+        
+        .link-details {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        
+        .link-label {
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            color: #b9d5f2;
+            font-weight: 700;
+        }
+        
+        .link-details a {
+            color: white;
+            font-size: 13px;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+        
+        .link-details a:hover {
+            text-decoration: underline;
+        }
+        
+        .quick-link button {
+            background: white;
+            color: #173e6b;
+            border: none;
+            border-radius: 7px;
+            padding: 7px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        @media(max-width: 480px) {
+            .quick-link {
+                width: 100%;
+            }
+        }
+        
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                scroll-behavior: auto!important;
+                transition: none!important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <header class="hero">
+            <nav class="nav">
+                <div class="brand">
+                    <div class="brand-mark">LTM</div>
+                    <div>ONBOARDING PORTAL<small>DOCUMENT CENTRE</small></div>
+                </div>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">◐ Theme</button>
+                    <button class="icon-btn" type="button" onclick="window.print()">⇩ Print</button>
+                </div>
+            </nav>
+            <div class="hero-copy">
+                <div class="eyebrow">Your onboarding checklist</div>
+                <h1>Documents, organised.<br>Onboarding, simplified.</h1>
+                <p>Access your general onboarding documents in one place. Preview, download, copy a link or share a document whenever you need it.</p>
+            </div>
+            <div class="quick-link">
+                <span class="link-icon">🔗</span>
+                <div class="link-details">
+                    <span class="link-label">QUICK ACCESS URL</span>
+                    <a href="https://your-url.com" id="quickUrl" target="_blank">
+            https://your-url.com
+        </a>
+                </div>
+                <button onclick="copyQuickUrl()">Copy</button>
+            </div>
+
+        </header>
+
+        <main>
+            <section class="overview" aria-label="Document overview">
+                <div class="stat">
+                    <div class="stat-icon">▤</div>
+                    <div><strong id="totalCount">14</strong><span>Total documents</span></div>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon">PDF</div>
+                    <div><strong>PDF</strong><span>Document format</span></div>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon">⌕</div>
+                    <div><strong>Quick</strong><span>Search & access</span></div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-head">
+                    <div>
+                        <h2 class="panel-title">General documents</h2>
+                        <p class="panel-sub">Your document collection · Select any file to preview</p>
+                    </div>
+                </div>
+                <div class="toolbar">
+                    <label class="search-wrap"><span>⌕</span><input class="search" id="search" type="search" placeholder="Search by document name..." autocomplete="off" aria-label="Search documents"></label>
+                    <select class="filter" id="category" aria-label="Filter by category">
+          <option value="all">All documents</option>
+          <option value="education">Education</option>
+          <option value="identity">Identity & age proof</option>
+          <option value="employment">Employment</option>
+        </select>
+                    <div class="view-toggle" aria-label="View mode"><button id="gridBtn" class="active" type="button" title="Grid view">▦</button><button id="listBtn" type="button" title="List view">☰</button></div>
+                </div>
+                <div class="list-area">
+                    <div class="doc-list" id="docList"></div>
+                    <div class="empty" id="empty"><strong>No documents found</strong>Try a different search term or category.</div>
+                </div>
+                <div class="footer"><span id="resultCount">Showing 14 documents</span><span>Keep your PDF files in the same folder as this HTML file.</span></div>
+            </section>
+        </main>
+    </div>
+
+    <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="PDF document preview">
+        <div class="viewer-head">
+            <div class="viewer-name" id="viewerName">Document preview</div>
+            <div class="viewer-tools">
+                <button class="action" id="viewerDownload" type="button">↓ Download</button>
+                <button class="close" type="button" onclick="closeViewer()">Close ✕</button>
+            </div>
+        </div>
+        <iframe id="pdfFrame" title="PDF preview"></iframe>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        /* Keep the PDF filenames exactly matched to the files in this folder. */
+        const documents = [{
+            title: "SSC Marksheet – Original Scan Copy",
+            file: "2026Mar@000378_Xth Mark Sheet (1).pdf",
+            category: "education",
+            kind: "School education"
+        }, {
+            title: "HSC Marksheet – Original Scan Copy",
+            file: "2026Mar@000378_XIIth Mark Sheet (4).pdf",
+            category: "education",
+            kind: "School education"
+        }, {
+            title: "Degree Marksheet – Semester 1",
+            file: "2026Mar@000378_Degree Mark Sheet_Sem 1 (1).pdf",
+            category: "education",
+            kind: "Degree marksheet"
+        }, {
+            title: "Degree Marksheet – Semester 2",
+            file: "2026Mar@000378_Degree Mark Sheet_Sem 2.pdf",
+            category: "education",
+            kind: "Degree marksheet"
+        }, {
+            title: "Degree Marksheet – Semester 3",
+            file: "2026Mar@000378_Degree Mark Sheet_Sem 3.pdf",
+            category: "education",
+            kind: "Degree marksheet"
+        }, {
+            title: "Degree Marksheet – Semester 4",
+            file: "2026Mar@000378_Degree Mark Sheet_Sem 4.pdf",
+            category: "education",
+            kind: "Degree marksheet"
+        }, {
+            title: "Degree Marksheet – Semester 5",
+            file: "2026Mar@000378_Degree Mark Sheet_Sem 5.pdf",
+            category: "education",
+            kind: "Degree marksheet"
+        }, {
+            title: "Degree Marksheet – Semester 6",
+            file: "2026Mar@000378_Degree Mark Sheet_Sem 6.pdf",
+            category: "education",
+            kind: "Degree marksheet"
+        }, {
+            title: "Consolidated Degree Marksheet",
+            file: "cons ug_merged.pdf",
+            category: "education",
+            kind: "Consolidated marksheet"
+        }, {
+            title: "Degree Completion Certificate",
+            file: "2026Mar@000378_Degree Completion Certificate.pdf",
+            category: "education",
+            kind: "Certificate"
+        }, {
+            title: "Proof of Age – Driving License",
+            file: "2026Mar@000378_Driving License (1).pdf",
+            category: "identity",
+            kind: "Age proof"
+        }, {
+            title: "Aadhaar Card – Address Page and Unmasked",
+            file: "2026Mar@000378_Aadhaar Card (1).pdf",
+            category: "identity",
+            kind: "Identity document"
+        }, {
+            title: "PAN Card – With Signature",
+            file: "2026Mar@000378_PAN Card.pdf",
+            category: "identity",
+            kind: "Identity document"
+        }, {
+            title: "UAN Screenshot",
+            file: "2026Mar@000378_UAN Screenshot (2).pdf",
+            category: "employment",
+            kind: "Employment record"
+        }];
+        const list = document.getElementById("docList"),
+            search = document.getElementById("search"),
+            category = document.getElementById("category");
+        const viewer = document.getElementById("viewer"),
+            frame = document.getElementById("pdfFrame");
+        let lastFocus = null;
+        const urlFor = f => encodeURI(f).replace(/#/g, "%23");
+
+        function notify(msg) {
+            const t = document.getElementById("toast");
+            t.textContent = msg;
+            t.classList.add("show");
+            clearTimeout(notify.timer);
+            notify.timer = setTimeout(() => t.classList.remove("show"), 2200)
+        }
+
+        function openViewer(doc) {
+            lastFocus = document.activeElement;
+            document.getElementById("viewerName").textContent = doc.title;
+            frame.src = urlFor(doc.file);
+            document.getElementById("viewerDownload").onclick = () => downloadDoc(doc);
+            viewer.classList.add("open");
+            document.body.style.overflow = "hidden";
+            viewer.querySelector(".close").focus()
+        }
+
+        function closeViewer() {
+            viewer.classList.remove("open");
+            frame.src = "about:blank";
+            document.body.style.overflow = "";
+            if (lastFocus) lastFocus.focus()
+        }
+
+        function copyQuickUrl() {
+            const url = document.getElementById("quickUrl").href;
+
+            navigator.clipboard.writeText(url).then(() => {
+                notify("Quick access URL copied!");
+            }).catch(() => {
+                notify("Unable to copy URL");
+            });
+        }
+
+        function downloadDoc(doc) {
+            const a = document.createElement("a");
+            a.href = urlFor(doc.file);
+            a.download = doc.file;
+            document.body.appendChild(a);
+            a.click();
+            a.remove()
+        }
+        async function copyDoc(doc) {
+            const url = new URL(urlFor(doc.file), location.href).href;
+            try {
+                await navigator.clipboard.writeText(url);
+                notify("Document link copied")
+            } catch {
+                const x = document.createElement("textarea");
+                x.value = url;
+                document.body.appendChild(x);
+                x.select();
+                document.execCommand("copy");
+                x.remove();
+                notify("Document link copied")
+            }
+        }
+        async function shareDoc(doc) {
+            const url = new URL(urlFor(doc.file), location.href).href;
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: doc.title,
+                        text: doc.title,
+                        url
+                    })
+                } catch (e) {
+                    if (e.name !== "AbortError") notify("Sharing could not be completed")
+                }
+            } else {
+                await copyDoc(doc);
+                notify("Sharing unavailable here — link copied instead")
+            }
+        }
+
+        function render() {
+            const q = search.value.trim().toLowerCase(),
+                cat = category.value;
+            const filtered = documents.filter(d => (cat === "all" || d.category === cat) && (d.title + " " + d.file + " " + d.kind).toLowerCase().includes(q));
+            list.innerHTML = "";
+            filtered.forEach((doc, i) => {
+                const card = document.createElement("article");
+                card.className = "doc-card";
+                const icon = document.createElement("div");
+                icon.className = "doc-icon";
+                icon.textContent = "PDF";
+                const info = document.createElement("div");
+                info.className = "doc-info";
+                const title = document.createElement("div");
+                title.className = "doc-title";
+                title.textContent = doc.title;
+                const filename = document.createElement("div");
+                filename.className = "doc-filename";
+                filename.textContent = doc.file;
+                const meta = document.createElement("div");
+                meta.className = "doc-meta";
+                const tag = document.createElement("span");
+                tag.className = "tag";
+                tag.textContent = doc.kind;
+                meta.append(tag);
+                const actions = document.createElement("div");
+                actions.className = "doc-actions";
+                const add = (label, fn, primary = false) => {
+                    const b = document.createElement("button");
+                    b.type = "button";
+                    b.className = "action" + (primary ? " primary" : "");
+                    b.textContent = label;
+                    b.onclick = fn;
+                    actions.append(b)
+                };
+                add("View PDF ↗", () => openViewer(doc), true);
+                add("↓ Download", () => downloadDoc(doc));
+                add("Copy link", () => copyDoc(doc));
+                add("Share", () => shareDoc(doc));
+                info.append(title, filename, meta, actions);
+                card.append(icon, info);
+                list.append(card);
+            });
+            document.getElementById("empty").style.display = filtered.length ? "none" : "block";
+            document.getElementById("resultCount").textContent = `Showing ${filtered.length} of ${documents.length} documents`;
+        }
+        search.addEventListener("input", render);
+        category.addEventListener("change", render);
+        document.getElementById("gridBtn").onclick = () => {
+            list.classList.add("grid-mode");
+            list.style.gridTemplateColumns = "repeat(2,minmax(0,1fr))";
+            document.getElementById("gridBtn").classList.add("active");
+            document.getElementById("listBtn").classList.remove("active")
+        };
+        document.getElementById("listBtn").onclick = () => {
+            list.style.gridTemplateColumns = "1fr";
+            document.getElementById("listBtn").classList.add("active");
+            document.getElementById("gridBtn").classList.remove("active")
+        };
+        document.getElementById("themeBtn").onclick = () => {
+            document.body.classList.toggle("dark");
+            localStorage.setItem("ltm-doc-theme", document.body.classList.contains("dark") ? "dark" : "light")
+        };
+        if (localStorage.getItem("ltm-doc-theme") === "dark") document.body.classList.add("dark");
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape" && viewer.classList.contains("open")) closeViewer()
+        });
+        viewer.addEventListener("click", e => {
+            if (e.target === viewer) closeViewer()
+        });
+        document.getElementById("totalCount").textContent = documents.length;
+        render();
+    </script>
+</body>
+
+</html>
